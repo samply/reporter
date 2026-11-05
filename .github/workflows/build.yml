@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 20
+          java-version: 25
 
       - name: Check out Git repository
         uses: actions/checkout@v3
@@ -48,7 +48,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 20
+          java-version: 25
 
       - name: Check out Git repository
         uses: actions/checkout@v3
@@ -114,7 +114,7 @@ jobs:
     needs: build
     uses: samply/github-workflows/.github/workflows/maven.yml@main
     with:
-      java-version: 20
+      java-version: 25
       java-distribution: 'temurin'
     secrets:
       MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
