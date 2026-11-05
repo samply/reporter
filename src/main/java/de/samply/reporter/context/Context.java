@@ -133,7 +133,7 @@ public class Context {
                 .setDelimiter(csvConfig.delimiter())
                 .setRecordSeparator(csvConfig.endOfLine())
                 .setQuote(null)
-                .build()
+                .get()
                 .parse(bufferedReader)) {
             csvParser.getRecords().forEach(recordConsumer);
         }
