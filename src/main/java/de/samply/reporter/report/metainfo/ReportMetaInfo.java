@@ -1,7 +1,7 @@
 package de.samply.reporter.report.metainfo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import tools.jackson.databind.annotation.JsonSerialize;
 import de.samply.reporter.app.ReporterConst;
 import java.nio.file.Path;
 

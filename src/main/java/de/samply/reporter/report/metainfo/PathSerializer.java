@@ -1,16 +1,16 @@
 package de.samply.reporter.report.metainfo;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import java.io.IOException;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.ValueSerializer;
 import java.nio.file.Path;
 
-public class PathSerializer extends JsonSerializer<Path> {
+public class PathSerializer extends ValueSerializer<Path> {
 
   @Override
-  public void serialize(Path value, JsonGenerator gen, SerializerProvider serializers)
-      throws IOException {
+  public void serialize(Path value, JsonGenerator gen, SerializationContext serializers)
+      throws JacksonException {
     gen.writeString(value.getFileName().toString());
   }
 
