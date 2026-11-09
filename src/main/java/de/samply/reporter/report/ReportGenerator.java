@@ -219,10 +219,13 @@ public class ReportGenerator {
         if (value == null) {
             cell.setCellValue(ReporterConst.EMPTY_EXCEL_CELL);
         } else if (NumberUtils.isParsable(value)) {
-            if (NumberUtils.isDigits(value)) {
+            if (!NumberUtils.isDigits(value)) {
+                cell.setCellValue(Double.valueOf(value));
+            } else if (value.length() < 10 && (value.length() == 1 || value.charAt(0) != '0')) {
                 cell.setCellValue(Integer.valueOf(value));
             } else {
-                cell.setCellValue(Double.valueOf(value));
+                // Beyond the int range or with leading zeros it is rather an ID or a code: keep it as text
+                cell.setCellValue(value);
             }
         } else {
             cell.setCellValue(value);
