@@ -13,9 +13,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Apache POI 6.0.0, Guava 33.8.0, commons-csv 1.14.1, maven-model 3.9.16
 - Maven Wrapper 3.9.16 (.mvn/ was missing from the repository)
 - GitHub Actions updated, trivy-action pinned
+- Publishing via the Sonatype Central Portal (central-publishing-maven-plugin 0.12.0) instead of
+  OSSRH, which was shut down in 2025. The MAVEN_USERNAME/MAVEN_PASSWORD secrets must contain a
+  Central Portal user token.
 
 ### Removed
 - SnakeYAML 2.0 workaround and springdoc-openapi-common 1.7.0
+- nexus-staging-maven-plugin and the OSSRH distributionManagement
 
 ## [1.1.9 - 2024-04-11]
 ### Fixed
