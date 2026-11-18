@@ -10,8 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   reporter library (e.g. dktk-reporter) must build and run on Java 25.
 - Spring Boot 4.1.2 (Spring Framework 7, Jackson 3)
 - springdoc-openapi 3.2.0 (api-docs are now OpenAPI 3.1.0)
-- Apache POI 6.0.0, Guava 33.8.0, commons-csv 1.14.1, maven-model 3.9.16
-- Maven Wrapper 3.9.16 (.mvn/ was missing from the repository)
+- Apache POI 6.0.0, Guava 33.8.0, commons-csv 1.14.1, maven-model 3.10.1
+- Maven Wrapper with Maven 3.10.1 (.mvn/ was missing from the repository)
+- Release plugins: buildnumber 3.4.0, maven-javadoc 3.12.0, maven-gpg 3.2.8, maven-source 3.4.0
 - GitHub Actions updated, trivy-action pinned
 - Publishing via the Sonatype Central Portal (central-publishing-maven-plugin 0.12.0) instead of
   OSSRH, which was shut down in 2025. The MAVEN_USERNAME/MAVEN_PASSWORD secrets must contain a
