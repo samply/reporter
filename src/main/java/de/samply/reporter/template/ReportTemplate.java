@@ -1,9 +1,9 @@
 package de.samply.reporter.template;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import de.samply.reporter.template.script.ScriptReference;
 import de.samply.reporter.utils.CloneUtils;
 import de.samply.reporter.utils.CloneUtilsException;
@@ -12,7 +12,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-@JacksonXmlRootElement(localName = "report")
+@JsonRootName("report")
 public class ReportTemplate {
 
     @JacksonXmlProperty(isAttribute = true, localName = "id")

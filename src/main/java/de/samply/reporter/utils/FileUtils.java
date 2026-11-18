@@ -10,7 +10,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class FileUtils {
 
   public static String fetchRandomFilename(String fileFormatExtension) {
-    return RandomStringUtils.random(ReporterConst.RANDOM_FILENAME_SIZE, true, false) + "."
+    return RandomStringUtils.secure().nextAlphabetic(ReporterConst.RANDOM_FILENAME_SIZE) + "."
         + fileFormatExtension;
   }
 

@@ -85,7 +85,7 @@ public class ReportMetaInfoManager {
     }
 
     private String generateReportId() {
-        return RandomStringUtils.random(ReporterConst.RANDOM_REPORT_ID_SIZE, true, false);
+        return RandomStringUtils.secure().nextAlphabetic(ReporterConst.RANDOM_REPORT_ID_SIZE);
     }
 
     public ReportMetaInfo[] fetchAllReportMetaInfos() throws ReportMetaInfoManagerException {

@@ -1,7 +1,7 @@
 package de.samply.reporter.template;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import de.samply.reporter.template.script.ScriptReference;
 
 public class ColumnTemplate {

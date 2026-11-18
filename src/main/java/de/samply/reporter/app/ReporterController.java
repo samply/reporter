@@ -1,7 +1,8 @@
 package de.samply.reporter.app;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import de.samply.reporter.exporter.ExporterClient;
 import de.samply.reporter.logger.BufferedLoggerFactory;
 import de.samply.reporter.logger.Logger;
@@ -46,7 +47,7 @@ public class ReporterController {
     private final ExporterClient exporterClient;
     private final String httpRelativePath;
     private final String httpServletRequestScheme;
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = JsonMapper.builder().configureForJackson2().build();
 
 
     public ReporterController(
@@ -86,7 +87,7 @@ public class ReporterController {
             @RequestHeader(name = "Content-Type", required = false) String contentType,
             @RequestHeader(name = ReporterConst.IS_INTERNAL_REQUEST, required = false) Boolean isInternalRequest,
             @RequestBody(required = false) String template
-    ) throws ReportGeneratorException, ReportMetaInfoManagerException, JsonProcessingException {
+    ) throws ReportGeneratorException, ReportMetaInfoManagerException, JacksonException {
         ReportTemplate reportTemplate;
         if (template != null) {
             if (contentType != null && !contentType.equalsIgnoreCase(
@@ -133,7 +134,7 @@ public class ReporterController {
     }
 
     private String createRequestResponseEntity(HttpServletRequest request, String reportId, Boolean isInternalRequest)
-            throws JsonProcessingException {
+            throws JacksonException {
         return objectMapper.writeValueAsString(
                 new GenerateResponseEntity(fetchResponseUrl(request, reportId, isInternalRequest)));
     }
