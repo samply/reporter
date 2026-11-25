@@ -6,7 +6,7 @@ import tools.jackson.databind.json.JsonMapper;
 
 public class CloneUtils {
 
-    private static ObjectMapper objectMapper = JsonMapper.builder().configureForJackson2().build();
+    private static ObjectMapper objectMapper = new JsonMapper();
 
     public static <T extends Object> T clone(T object) throws CloneUtilsException {
         try {

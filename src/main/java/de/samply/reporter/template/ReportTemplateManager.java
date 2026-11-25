@@ -79,7 +79,7 @@ public class ReportTemplateManager {
     public ReportTemplate fetchTemplate(String template) throws IOException {
         ReportTemplate reportTemplate;
         try {
-            reportTemplate = XmlMapper.builder().configureForJackson2().build()
+            reportTemplate = new XmlMapper()
                     .readValue(ScriptParser.readTemplateAndParseScripts(template), ReportTemplate.class);
         } catch (JacksonException e) {
             // Jackson 3 exceptions are unchecked; keep the IOException contract of this method

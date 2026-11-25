@@ -4,16 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.0.0 - unreleased]
+## [1.2.0 - unreleased]
 ### Changed
-- **Breaking:** Java 25 is required (Docker image eclipse-temurin:25-jre). Projects using the
+- Java 25 is required (Docker image eclipse-temurin:25-jre). Projects using the
   reporter library (e.g. dktk-reporter) must build and run on Java 25.
 - Spring Boot 4.1.2 (Spring Framework 7, Jackson 3)
+- Jackson 3 with its own defaults (no Jackson 2 compatibility mode); REST responses list properties alphabetically, values and report output unchanged
 - springdoc-openapi 3.2.0 (api-docs are now OpenAPI 3.1.0)
 - Apache POI 6.0.0, Guava 33.8.0, commons-csv 1.14.1, maven-model 3.10.1
 - Maven Wrapper with Maven 3.10.1 (.mvn/ was missing from the repository)
 - Release plugins: buildnumber 3.4.0, maven-javadoc 3.12.0, maven-gpg 3.2.8, maven-source 3.4.0
-- GitHub Actions updated, trivy-action pinned
+- GitHub Actions updated, trivy-action v0.36.0 (version tag instead of master)
 - Publishing via the Sonatype Central Portal (central-publishing-maven-plugin 0.12.0) instead of
   OSSRH, which was shut down in 2025. The MAVEN_USERNAME/MAVEN_PASSWORD secrets must contain a
   Central Portal user token.

@@ -47,7 +47,7 @@ public class ReporterController {
     private final ExporterClient exporterClient;
     private final String httpRelativePath;
     private final String httpServletRequestScheme;
-    private final ObjectMapper objectMapper = JsonMapper.builder().configureForJackson2().build();
+    private final ObjectMapper objectMapper = new JsonMapper();
 
 
     public ReporterController(
