@@ -1,4 +1,4 @@
-FROM eclipse-temurin:20-jre
+FROM eclipse-temurin:25-jre
 
 COPY target/reporter-*-exec.jar /app/reporter.jar
 

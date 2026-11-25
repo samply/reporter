@@ -1,6 +1,7 @@
 package de.samply.reporter.template;
 
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.dataformat.xml.XmlMapper;
 import de.samply.reporter.app.ReporterConst;
 import de.samply.reporter.template.script.Script;
 import de.samply.reporter.template.script.ScriptParser;
@@ -76,8 +77,15 @@ public class ReportTemplateManager {
     }
 
     public ReportTemplate fetchTemplate(String template) throws IOException {
-        return fetchScriptFilesAndAddToTemplate(
-                new XmlMapper().readValue(ScriptParser.readTemplateAndParseScripts(template), ReportTemplate.class));
+        ReportTemplate reportTemplate;
+        try {
+            reportTemplate = new XmlMapper()
+                    .readValue(ScriptParser.readTemplateAndParseScripts(template), ReportTemplate.class);
+        } catch (JacksonException e) {
+            // Jackson 3 exceptions are unchecked; keep the IOException contract of this method
+            throw new IOException(e);
+        }
+        return fetchScriptFilesAndAddToTemplate(reportTemplate);
     }
 
     private ReportTemplate fetchScriptFilesAndAddToTemplate(ReportTemplate template) throws IOException {
